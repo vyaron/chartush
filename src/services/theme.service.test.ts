@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { loadTheme, saveTheme, applyTheme, type Theme } from './theme.service'
+import { describe, it, expect, beforeEach } from 'vitest'
+import { loadTheme, saveTheme, applyTheme } from './theme.service'
 
 describe('theme.service', () => {
   beforeEach(() => {
