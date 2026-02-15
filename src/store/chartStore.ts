@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { Chart, ChartType, ChartStyle, ChartTerm } from '../types'
 import { getEmptyChart } from '../services/chart.service'
+import { saveChart, loadChart } from '../services/gallery.service'
 import { getUniqueColors } from '../services/util.service'
 
 interface ChartState {
@@ -13,6 +14,9 @@ interface ChartState {
   updateTerm: (index: number, term: Partial<ChartTerm>) => void
   removeTerm: (index: number) => void
   updateStyle: (style: Partial<ChartStyle>) => void
+  updateThumbnail: (thumbnail: string) => void
+  saveToGallery: () => void
+  loadFromGallery: (id: string) => boolean
   resetChart: () => void
 }
 
@@ -72,6 +76,24 @@ export const useChartStore = create<ChartState>((set) => ({
       updatedAt: Date.now()
     }
   })),
+
+  updateThumbnail: (thumbnail) => set((state) => ({
+    chart: { ...state.chart, thumbnail }
+  })),
+
+  saveToGallery: () => {
+    const state = useChartStore.getState()
+    saveChart(state.chart)
+  },
+
+  loadFromGallery: (id) => {
+    const chart = loadChart(id)
+    if (chart) {
+      set({ chart })
+      return true
+    }
+    return false
+  },
 
   resetChart: () => set({ chart: getEmptyChart() })
 }))

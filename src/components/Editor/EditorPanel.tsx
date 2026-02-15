@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useChartStore } from '../../store/chartStore'
 import type { ChartType } from '../../types'
 
@@ -9,13 +10,15 @@ const CHART_TYPES: { value: ChartType; label: string }[] = [
 ]
 
 export function EditorPanel() {
+  const [saved, setSaved] = useState(false)
   const {
     chart,
     updateTitle,
     updateType,
     addTerm,
     updateTerm,
-    removeTerm
+    removeTerm,
+    saveToGallery
   } = useChartStore()
 
   function onTitleChange(ev: React.ChangeEvent<HTMLInputElement>) {
@@ -44,6 +47,12 @@ export function EditorPanel() {
 
   function onRemoveTerm(index: number) {
     removeTerm(index)
+  }
+
+  function onSave() {
+    saveToGallery()
+    setSaved(true)
+    setTimeout(() => setSaved(false), 2000)
   }
 
   return (
@@ -115,6 +124,10 @@ export function EditorPanel() {
           + Add Item
         </button>
       </div>
+
+      <button type="button" className="btn-save" onClick={onSave}>
+        {saved ? '✓ Saved!' : 'Save to Gallery'}
+      </button>
     </aside>
   )
 }

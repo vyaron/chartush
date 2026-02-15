@@ -21,6 +21,7 @@ export interface Chart {
   style: ChartStyle
   valueType: ValueType
   terms: ChartTerm[]
+  thumbnail?: string
   createdAt: number
   updatedAt: number
 }
