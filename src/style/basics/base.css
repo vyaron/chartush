@@ -1,0 +1,11 @@
+body {
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+    min-height: 100dvh;
+}
+
+#root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}

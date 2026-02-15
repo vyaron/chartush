@@ -1,0 +1,25 @@
+header {
+    padding: 1em 0;
+    border-bottom: 1px solid var(--clr-border);
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            display: flex;
+            gap: 1.5em;
+
+            a {
+                color: var(--clr-text-muted);
+                transition: color 0.2s;
+
+                &:hover,
+                &.active {
+                    color: var(--clr-primary);
+                }
+            }
+        }
+    }
+}

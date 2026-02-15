@@ -1,0 +1,9 @@
+:root {
+    --clr-primary: #646cff;
+    --clr-primary-hover: #535bf2;
+    --clr-bg: #242424;
+    --clr-bg-light: #1a1a1a;
+    --clr-text: rgba(255, 255, 255, 0.87);
+    --clr-text-muted: rgba(255, 255, 255, 0.6);
+    --clr-border: rgba(255, 255, 255, 0.1);
+}
