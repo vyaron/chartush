@@ -7,3 +7,11 @@
     --clr-text-muted: rgba(255, 255, 255, 0.6);
     --clr-border: rgba(255, 255, 255, 0.1);
 }
+
+[data-theme="light"] {
+    --clr-bg: #ffffff;
+    --clr-bg-light: #f5f5f5;
+    --clr-text: rgba(0, 0, 0, 0.87);
+    --clr-text-muted: rgba(0, 0, 0, 0.6);
+    --clr-border: rgba(0, 0, 0, 0.1);
+}

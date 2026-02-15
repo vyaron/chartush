@@ -1,6 +1,9 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import { useAppStore } from '../store'
 
 export function RootLayout() {
+    const { theme, toggleTheme } = useAppStore()
+
     return (
         <>
             <header className="main-layout">
@@ -10,6 +13,9 @@ export function RootLayout() {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/about">About</NavLink></li>
                     </ul>
+                    <button onClick={toggleTheme} aria-label="Toggle theme">
+                        {theme === 'dark' ? '☀️' : '🌙'}
+                    </button>
                 </nav>
             </header>
             <main>
